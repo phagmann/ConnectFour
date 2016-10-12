@@ -59,7 +59,7 @@ function evalutation(datab,spot){
     var pos = 0;
     //spot = [realY][realX]
     if(ifArrayWin(datab) == 1 || ifArrayWin(datab) == 2){
-        console.log("luck")
+        //("luck")
         return  1000000
         }
         
@@ -82,7 +82,7 @@ function evalutation(datab,spot){
 
 // drops peice in a given collom in connect four
 function dropPiece(dataw, g, depth){
-  console.log(depth.toString()+g)
+  //(depth.toString()+g)
   var change_col =   ((parseInt(g.substring(1)) - 1)% dataw[0].length) 
   //1,2,3,4,0
 
@@ -160,9 +160,9 @@ Tree.prototype.newadd = function(value,dataa){
         this.currentNode.uncontested = findChoices(this.currentNode.board.map(function(arr) {
     return arr.slice();
 }))
-        console.log("base")
-        console.log(this.currentNode.board)
-        console.log("base")
+        //("base")
+        //(this.currentNode.board)
+        //("base")
         this.currentNode
         return;
     } 
@@ -173,7 +173,7 @@ Tree.prototype.newadd = function(value,dataa){
     this.currentNode = node
     this.currentNode.alpha = this.currentNode.next.alpha
     this.currentNode.beta = this.currentNode.next.beta
-    // console.log(this.currentNode.next.gdex)
+    // //(this.currentNode.next.gdex)
     var b = dropPiece(this.currentNode.next.board.map(function(arr) {
     return arr.slice();
 }), this.currentNode.next.uncontested[this.currentNode.next.gdex], this.depth)
@@ -190,8 +190,8 @@ Tree.prototype.newadd = function(value,dataa){
     this.currentNode.uncontested = findChoices(this.currentNode.board.map(function(arr) {
     return arr.slice();
 }))
-    console.log(this.currentNode.board)
-    console.log(this.currentNode.uncontested)
+    //(this.currentNode.board)
+    //(this.currentNode.uncontested)
     this.currentNode.next.gdex++
     this.depth++
     return;
@@ -298,7 +298,7 @@ function AlphaBetaPruning (dataa, depth){
     var childern = q.currentNode.uncontested.length
     var countdown = childern; //how many childern for starting point
     var leader = q.currentNode.uncontested[0]
-    console.log(countdown)
+    //(countdown)
       while( countdown > 0){
           if (q.currentNode.uncontested !==null && q.getDepth() < depth - 1 && q.currentNode.gdex < q.currentNode.uncontested.length ){
             if (q.ifPrune()){
@@ -312,7 +312,7 @@ function AlphaBetaPruning (dataa, depth){
           else if ( q.getDepth() >= depth - 1){
             for ( var z=0; z < q.currentNode.uncontested.length; z++){
                 q.add()
-                console.log(q.PreviousNodeAt(z).value)
+                //(q.PreviousNodeAt(z).value)
                 if ( q.ifPrune()){
                     q.getAlphaBeta(q.getDepth(),z);
                     break;
@@ -327,19 +327,19 @@ function AlphaBetaPruning (dataa, depth){
             q.Next();
           };
          if (q.currentNode.next === null){
-            console.log("yyyyy")
-            console.log(q.Value())
-            console.log(q.leading)
-            console.log("yyyyy")
+            //("yyyyy")
+            //(q.Value())
+            //(q.leading)
+            //("yyyyy")
             if (q.leading < q.Value() ){
                 leader = q.currentNode.uncontested[childern - countdown]
                 q.leading = q.Value()
             }
             countdown--
-            console.log(countdown)
+            //(countdown)
             if(countdown <= 0){
-                console.log("winner")
-                console.log(leader)
+                //("winner")
+                //(leader)
                 return leader;
             }         
             q.newadd();
@@ -405,12 +405,12 @@ function press(div,track) {
 
   var className = div.getAttribute("class");
   if(className == "col-sm-5 egg" && track % 2 == 0) {
-      console.log("bam")
+      //("bam")
       div.className = "col-sm-5 circle";
       div.disabled = true;
   }
   else if(className == "col-sm-5 egg" && track % 2 == 1){
-      console.log("wam")
+      //("wam")
       div.className =  "col-sm-5 cross";
       div.disabled = true;
   }
@@ -446,7 +446,7 @@ function datasArray(num1,num2){
   for (var ii = 1; ii <= num1*num2; ii++) {
     var currentDivId = "g";
     currentDivId += ii.toString();
-    //console.log(currentDivId);
+    ////(currentDivId);
     var className = document.getElementById(currentDivId).getAttribute("class");
     if(className == "col-sm-5 egg" ) {
       
@@ -469,7 +469,7 @@ function datasArray(num1,num2){
 
     
 };
-console.log(d);
+//(d);
 return d;
 };
 
@@ -479,8 +479,8 @@ function ifWin(track,switching,num1,num2){
   var data = datasArray(num1,num2);
  //var data = dataa.slice(1)
   //stage 1: stores 0 1's and 2's in a 2d array called data
-  console.log("WISSSSSSSSSSSSSSSSS")
-  console.log(data)
+  //("WISSSSSSSSSSSSSSSSS")
+  //(data)
 //evalutation(dive,data)
   //stage 2: TODO: 
   //    a) establish evaluation function DONE
