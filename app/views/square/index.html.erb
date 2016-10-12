@@ -1,0 +1,63 @@
+<body>
+<h1>Connect Four!</h1>
+<div>
+<p> Simply click a white egg to place your piece. You go first and play Green Circles, then the enemy AI plays Red ones. Good Luck :)</p>
+<p> Note: Only bottom open white eggs can be moved to.</p>
+<br>
+</div>
+
+<div class = "moveleft">
+<r1>
+<FORM>
+<INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh">
+</FORM>
+</r1>
+</div>
+
+<style>
+table, tr, td {
+    border: 5px solid black;
+    padding: 15px;
+
+}
+table {
+    border-spacing: 5px;
+
+}
+
+</style>
+
+<script>var track=0; 
+var num1= 7;
+var num2 = 7;
+</script>
+
+
+<table style=" position: relative; top: 40px;">
+    <script> var row = 0 </script>
+    <% 7.times do %>
+    <script> var col = 0 
+    //console.log(col + row)
+    </script>
+        <tr>
+            <% 7.times do %>   
+            <td><button  id ="a" type="button" class="col-sm-5 egg" onclick=" press(this, track); stackUp(this,num1,num2); track=track + 1;ifWin(track,1, num1, num2);track=track + 1;  "></td>
+            <script> 
+                col = col + 1 
+                var div = document.getElementById('a');
+                div.id = "g" + (row*num2 + col).toString();
+                if (row < num1 - 1) {
+                    div.disabled = true; 
+                    }
+                    //div.click()
+
+            </script>
+            <% end %>
+            <script> row = row +1; 
+            var col = 0;
+            </script>
+        </tr>
+    <% end %>
+</table>
+
+</body>
